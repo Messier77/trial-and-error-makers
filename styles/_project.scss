@@ -1,0 +1,91 @@
+.projects {
+
+    .back-to-work {
+        display: flex;
+        width: 150px;
+        text-decoration: none;
+        color: #000000;
+        margin-top: 60px;
+        margin-bottom: -30px;
+
+        img {
+            filter: invert(1);
+            transform: rotateY(180deg);
+            margin-right: 12px;
+        }
+    }
+
+    .project-image {
+        width: 100%;
+        height: 770px;
+        margin-bottom: 50px;
+    }
+
+    .product-description {
+        width: 860px;
+        margin: auto;
+        margin-bottom: 50px;
+
+        h5 {
+            font-size: 1.5em;
+        }
+
+        p {
+            font-size: 1.1em;
+            font-family: 'Montserrat', sans-serif;
+            margin: 15px 0px;
+            text-align: justify;
+        }
+    }
+
+    .video {
+        width: 100%;
+        background-color: #DDDDDD;
+        height: 770px;
+        position: relative;
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100px;
+        }
+    }
+
+    .back-to-work-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+
+        .back-to-work-under {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            width: 150px;
+            text-decoration: none;
+            color: #000000;
+    
+            img {
+                filter: invert(1);
+                transform: rotateY(180deg);
+                margin-right: 12px;
+            }
+        }
+
+        .share {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+
+            p {
+                font-size: 1em;
+            }
+
+            a {
+                margin-left: 37px;
+            }
+        }
+    }
+}
