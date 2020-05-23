@@ -4,7 +4,6 @@
   position: relative;
   width: 100%;
   height: 80px;
-  margin-top: 90px;
   padding: 17px 34px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -239,6 +238,7 @@
   font-size: 1.1em;
   font-family: 'Montserrat', sans-serif;
   margin: 15px 0px;
+  line-height: 1.5em;
 }
 
 .projects .video {
@@ -320,6 +320,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 1.1em;
   margin-top: -15px;
+  line-height: 1.5em;
 }
 
 .projects .us {
@@ -373,6 +374,7 @@
 .projects .us .dragos p, .projects .us .teo p {
   font-size: 1.1em;
   font-family: 'Montserrat', sans-serif;
+  line-height: 1.5em;
 }
 
 .projects .us .dragos .about-me, .projects .us .teo .about-me {
@@ -420,6 +422,138 @@
 
 .projects .where .platforms .platform a img {
   margin-right: 20px;
+}
+
+.contact-form {
+  width: 100%;
+  padding: 20px 0;
+  margin-top: 50px;
+  background: #F3F3F3;
+}
+
+.contact-form .contact-container {
+  width: 65%;
+  margin: auto;
+}
+
+.contact-form h3 {
+  width: 100%;
+  font-size: 2.3em;
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 10px;
+}
+
+.contact-form .row100 {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact-form .row100 .col {
+  position: relative;
+  width: 100%;
+  padding-right: 37px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.contact-form .row100 .col:nth-child(3) {
+  padding-right: 0;
+}
+
+.contact-form .row100 .textarea-col {
+  padding-right: 0;
+}
+
+.contact-form .row100 .submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-right: 0;
+}
+
+.contact-form .row100 .inputBox {
+  position: relative;
+  width: 100%;
+  height: 1.5em;
+}
+
+.contact-form .row100 .inputBox input,
+.contact-form .row100 .inputBox.textarea textarea {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid #414141;
+  outline: none;
+  font-size: 0.9em;
+  z-index: 1;
+}
+
+.contact-form .row100 .inputBox input:focus + .text,
+.contact-form .row100 .inputBox input:valid + .text,
+.contact-form .row100 .inputBox.textarea textarea:focus + .text,
+.contact-form .row100 .inputBox.textarea textarea:valid + .text {
+  top: -1.5em;
+  font-size: 70%;
+}
+
+.contact-form .row100 .inputBox .text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 1.5em;
+  font-size: 0.85em;
+  display: block;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-form .row100 .inputBox.textarea {
+  position: relative;
+  width: 100%;
+  height: 3.5em;
+}
+
+.contact-form .row100 .inputBox.textarea textarea {
+  max-height: 5.5em;
+  min-height: 1.5em;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.contact-form input[type="submit"] {
+  border: 1px solid #000000;
+  padding: 10px 51px;
+  border-radius: 50px;
+  cursor: pointer;
+  outline: none;
+  background: #F3F3F3;
+  font-size: 0.85em;
+  margin-bottom: 30px;
 }
 
 @media (max-width: 1042px) {
@@ -548,6 +682,7 @@ nav .logo img {
 .projects {
   width: 85%;
   margin: auto;
+  margin-bottom: 90px;
 }
 
 .projects h1 {
