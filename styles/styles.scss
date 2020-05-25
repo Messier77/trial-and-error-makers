@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
-@import "footer";
-@import "work";
-@import "project";
-@import "contact";
 
 
 
@@ -18,7 +14,8 @@
 nav {
     position: relative;
     width: 85%;
-    height: 10.5vw;
+    height: 10vw;
+    min-height: 100px;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -43,6 +40,10 @@ nav {
                     }
                 }
             }
+
+            .header-icon-mobile {
+                display: none;
+            }
         }
     }
 
@@ -50,6 +51,8 @@ nav {
         ul {
             list-style: none;
             display: flex;
+            justify-content: center;
+            align-items: flex-end;
 
             li {
 
@@ -95,7 +98,15 @@ nav {
                     }
                 }
             }
+
+            .header-icon-mobile {
+                display: none;
+            }
         }
+    }
+
+    .burger-toggle {
+        cursor: pointer;
     }
 
     .logo {
@@ -106,14 +117,82 @@ nav {
         transition: filter 0.5s ease;
         width: 10vw;
         height: 10vw;
-        min-width: 110px;
-        min-height: 110px;
+        min-width: 100px;
+        min-height: 100px;
 
         img {
             width: 100%;
             height: 100%;
         }
     }
+}
+
+.mobile-nav {
+    background: #FFFFFF;
+    position: sticky;
+    top: 100px;
+    left: 0;
+    height: calc(100vh - 100px);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+
+    ul {
+        // transform: translateY(-50px);
+        li {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+
+            a {
+                position: relative;
+                text-decoration: none;
+                color: #000000;
+                font-size: 1.5em;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    top: 1.3em;
+                    height: 2px;
+                    background: #000000;
+                    visibility: hidden;
+                    transform: scaleX(0);
+                    transition: .25s linear;
+                }
+
+                &:hover {
+                    &:before {
+                        visibility: visible;
+                        transform: scaleX(1);
+                    }
+                }
+            }
+        }
+    }
+
+    .burger-social {
+        position: absolute;
+        bottom: 0px;
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+
+        li {
+            margin-bottom: 30px;
+        }
+
+    }
+}
+
+.inactive-menu {
+    display: none;
 }
 
 // These are the styles for the Home and Work pages (grid area only!)
@@ -140,58 +219,66 @@ nav {
     }
 
     .projects-center {
+        position: relative;
         display: grid;
         grid-gap: 30px;
-        position: relative;
+        grid-template-areas: 
+            "p1 p2 p2 p3"
+            "p1 p4 p5 p3"
+            "p6 p7 p8 p9"
+            "p10 p11 p12 p13";
 
         .project-1 {
-            grid-column: 1/2;
-            grid-row: 1/3;
+            grid-area: p1;
             height: 100%;
         }
         .project-2 {
-            grid-column: 2/4;
-            grid-row: 1/2;
+            grid-area: p2;
             height: 100%;
         }
         .project-3 {
-            grid-column: 4/5;
-            grid-row: 1/3;
+            grid-area: p3;
             height: 100%;
         }
         .project-4 {
-            grid-column: 2/3;
-            grid-row: 2/3;
+            grid-area: p4;
             height: 100%;
         }
         .project-5 {
-            grid-column: 3/4;
-            grid-row: 2/3; 
+            grid-area: p5;
             height: 100%;
         }
         .project-6 {
             height: 100%;
+            grid-area: p6;
         }
         .project-7 {
             height: 100%;
+            grid-area: p7;
         }
         .project-8 {
             height: 100%;
+            grid-area: p8;
         }
         .project-9 {
             height: 100%;
+            grid-area: p9;
         }
         .project-10 {
             height: 100%;
+            grid-area: p10;
         }
         .project-11 {
             height: 100%;
+            grid-area: p11;
         }
         .project-12 {
             height: 100%;
+            grid-area: p12;
         }
         .project-13 {
             height: 100%;
+            grid-area: p13;
         }
     }
     
@@ -254,3 +341,7 @@ nav {
 }
 
 @import "styles-mobile";
+@import "footer";
+@import "work";
+@import "project";
+@import "contact";

@@ -1,17 +1,166 @@
 @media (max-width: 1240px) {
 
-    .projects {
-        .project {
-            .project-info {
-                h4 {
-                    font-size: 1.3em;
-                }
+.projects {
+    .project {
+        .project-info {
+            h4 {
+                font-size: 1.3em;
+            }
 
-                p {
-                    font-size: 0.9em;;
+            p {
+                font-size: 0.9em;;
+            }
+        }
+    }
+}
+
+}
+
+@media (max-width: 1024px) {
+
+.projects {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 1em;
+
+    h1 {
+        width: 90%;
+        font-size: 2em;
+        margin-top: 2em;
+    }
+
+    .projects-center {
+        position: relative;
+        display: grid;
+        grid-gap: 1em;
+        grid-template-areas: 
+            "p4 p5"
+            "p6 p6"
+            "p7 p8"
+            "p9 p9"
+            "p10 p11"
+            "p12 p13";
+
+            .project-1 {
+                display: none;
+            }
+            .project-2 {
+                display: none;
+            }
+            .project-3 {
+                display: none;
+            }
+    }
+
+    .project {
+
+        .project-info {
+            display: none;
+        }
+
+        &:hover {
+
+            .project-img {
+                opacity: 1;
+                transition: 0.3s ease;
+            }
+        }
+    }
+}
+
+}
+
+@media (max-width: 1024px) {
+
+nav {
+    width: 90%;
+
+    .nav-menu {
+        ul {
+            li {
+                a {
+                    font-size: 1em;
                 }
             }
         }
     }
+}
+
+}
+
+@media (max-width: 777px) {
+
+.projects {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 1em;
+
+    h1 {
+        width: 90%;
+        font-size: 1.7em;
+        margin-top: 2em;
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    background: #ffffff;
+    top: 0;
+    z-index: 1;
+    
+    .social-header {
+
+        ul {
+
+            li {
+                display: none;
+            }
+
+            .header-icon-mobile {
+                display: block;
+
+                img {
+                    height: 100%;
+                    filter: invert(0.8);
+
+                    &:hover {
+                        transition: none;
+                        transform: translateY(0px);
+                    }
+                }
+            }
+        }
+    }
+
+    .nav-menu {
+        
+        ul {
+
+            li {
+                display: none;
+            }
+
+            .header-icon-mobile {
+                display: block;
+
+                a {
+                    &:hover {
+                        &:before {
+                            visibility: hidden;
+                            transform: scaleX(1);
+                        }
+                    }
+                }
+
+                img {
+                    height: 150%;
+                }
+            }
+        }
+    }
+}
 
 }

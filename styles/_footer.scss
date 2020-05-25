@@ -29,6 +29,10 @@
             li {
                 padding-left: 37px;
 
+                &:nth-child(1) {
+                    padding-left: 0;
+                }
+
                 img {
                     transition: 0.2s ease;
                     &:hover {
@@ -39,4 +43,34 @@
             }
         }
     }
+}
+
+@media (max-width: 1024px) {
+
+.footer {
+    height: 60px;
+
+    .info-footer {
+        span {
+            display: none;
+        }
+
+        p {
+            font-size: 0.8em;
+        }
+    }
+
+    .social-footer {
+        height: 60%;
+
+        ul {
+            height: 100%;
+
+            li {
+                height: 100%;
+            }
+        }
+    }
+}
+
 }
