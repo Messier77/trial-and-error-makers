@@ -1,3 +1,25 @@
+<?php include "../includes/db.php" ?>
+<?php 
+
+    if (isset($_GET['product'])) {
+        $id = $_GET['product'];
+        echo 'id ' . $id;
+
+
+        $query = "SELECT * FROM products WHERE product_id = $id";
+        $select_all_products_query = mysqli_query($connection, $query);
+
+        $myArray = mysqli_fetch_all($select_all_products_query, MYSQLI_ASSOC);
+        $product = $myArray[0];
+
+        // echo '<pre>' , var_dump($product) , '</pre>';    pretty print 
+    }
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,30 +41,31 @@
                 <li><a href="#"><img src="../images/icons/facebook-icon.svg" alt=""></a></li>
                 <li><a href="#"><img src="../images/icons/instagram-icon.svg" alt=""></a></li>
                 <li><a href="#"><img src="../images/icons/twitter-icon.svg" alt=""></a></li>
-                <li class="header-icon-mobile"><a href="#"><img src="../images/icons/youtube-icon.svg" alt=""></a></li>
+                <li class="header-icon-mobile"><a href="#"><img src="../images/icons/youtube-icon-header-mobile.svg" alt=""></a></li>
             </ul>
         </div>
 
         <!-- Logo -->
         <div class="logo">
-            <a href="../index.html"><img src="../images/icons/Logo-and-bg.svg" alt=""></a>
+            <a href="../index.php"><img src="../images/icons/Logo-and-bg.svg" alt=""></a>
         </div>
 
         <!-- Navigation menu -->
         <div class="nav-menu">
             <ul>
-                <li><a href="../work/work.html">Work</a></li>
+                <li><a href="../work/work.php">Work</a></li>
                 <li><a href="#">YouTube Channel</a></li>
-                <li><a href="../contact/contact.html">Meet us</a></li>
+                <li><a href="../contact/contact.php">Meet us</a></li>
                 <li class="header-icon-mobile burger-toggle"><img src="../images/icons/burger-menu.svg" alt=""></li>
+                <li class="header-icon-mobile burger-toggle" id="burger-close"><img src="../images/icons/burger-menu-close.svg" alt=""></li>
             </ul>
         </div>
     </nav>
     <div class="mobile-nav inactive-menu">
         <ul>
-            <li><a href="../work/work.html">Work</a></li>
+            <li><a href="../work/work.php">Work</a></li>
             <li><a href="#">YouTube Channel</a></li>
-            <li><a href="../contact/contact.html">Meet us</a></li>
+            <li><a href="../contact/contact.php">Meet us</a></li>
         </ul>
 
         <ul class="burger-social">
@@ -54,12 +77,12 @@
     </div>
 
     <div class="projects">
-        <a href="../work/work.html" class="back-to-work">
+        <a href="../work/work.php" class="back-to-work">
             <img src="../images/icons/arrow.svg" alt="">
             <p>Back to work</p>
         </a>
 
-        <h1 class="h1-work">Wall Mounted Coat Hanger</h1>
+        <h1 class="h1-work"><?php echo $product['product_name'] ?></h1>
 
         <div class="detail-content">
             <img src="../images/products/broken-lamp/1-broken-lamp-facebook@2x.png" alt="" class="project-image">
@@ -86,7 +109,7 @@
         </div>
 
         <div class="back-to-work-bottom">
-            <a href="../work/work.html" class="back-to-work-under">
+            <a href="../work/work.php" class="back-to-work-under">
                 <img src="../images/icons/arrow.svg" alt="">
                 <p>Back to work</p>
             </a>
@@ -107,7 +130,7 @@
         </div>
 
         <div class="footer-logo">
-            <a href="../index.html"><img src="../images/icons//Footer-logo.svg" alt=""></a>
+            <a href="../index.php"><img src="../images/icons//Footer-logo.svg" alt=""></a>
         </div>
 
         <div class="social-footer">

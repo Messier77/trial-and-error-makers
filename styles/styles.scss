@@ -73,7 +73,7 @@ nav {
                         background: #000000;
                         visibility: hidden;
                         transform: scaleX(0);
-                        transition: .25s linear;
+                        transition: 0.1s linear;
                     }
 
                     &:hover {
@@ -133,14 +133,14 @@ nav {
     top: 100px;
     left: 0;
     height: calc(100vh - 100px);
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
 
     ul {
-        // transform: translateY(-50px);
+
         li {
             list-style: none;
             display: flex;
@@ -195,6 +195,10 @@ nav {
     display: none;
 }
 
+#burger-close {
+    display: none;
+}
+
 // These are the styles for the Home and Work pages (grid area only!)
 .projects {
     width: 85%;
@@ -220,72 +224,25 @@ nav {
 
     .projects-center {
         position: relative;
-        display: grid;
-        grid-gap: 30px;
-        grid-template-areas: 
-            "p1 p2 p2 p3"
-            "p1 p4 p5 p3"
-            "p6 p7 p8 p9"
-            "p10 p11 p12 p13";
+        columns: 4;
+        column-gap: 15px;
 
-        .project-1 {
-            grid-area: p1;
+        .project {
             height: 100%;
+            width: 100%;
         }
-        .project-2 {
-            grid-area: p2;
+        
+        img {
+            width: 100%;
             height: 100%;
-        }
-        .project-3 {
-            grid-area: p3;
-            height: 100%;
-        }
-        .project-4 {
-            grid-area: p4;
-            height: 100%;
-        }
-        .project-5 {
-            grid-area: p5;
-            height: 100%;
-        }
-        .project-6 {
-            height: 100%;
-            grid-area: p6;
-        }
-        .project-7 {
-            height: 100%;
-            grid-area: p7;
-        }
-        .project-8 {
-            height: 100%;
-            grid-area: p8;
-        }
-        .project-9 {
-            height: 100%;
-            grid-area: p9;
-        }
-        .project-10 {
-            height: 100%;
-            grid-area: p10;
-        }
-        .project-11 {
-            height: 100%;
-            grid-area: p11;
-        }
-        .project-12 {
-            height: 100%;
-            grid-area: p12;
-        }
-        .project-13 {
-            height: 100%;
-            grid-area: p13;
+            vertical-align: top;
         }
     }
     
     .project {
         position: relative;
         background: #CBA25F;
-        margin-bottom: 2rem;
+        margin-bottom: 15px;
         height: 100%;
 
         .project-info {

@@ -21,7 +21,8 @@
     }
 
     .project-image {
-        width: 860px;
+        width: 75%;
+        min-width: 860px;
         margin: auto;
         margin-bottom: 50px;
 
@@ -81,6 +82,7 @@
 
             p {
                 font-size: 1em;
+                font-weight: 700;
             }
 
             a {
@@ -95,6 +97,7 @@
 .projects {
     .project-image {
         width: 100%;
+        min-width: 0;
     }
     
     .product-description {

@@ -47,18 +47,18 @@
 
             input[type=checkbox] + label:before {
                 content: "\2714";
-                border: 2px solid #969696;
+                border: 1px solid #969696;
                 width: 10px;
                 height: 10px;
                 display: inline-block;
                 margin: 7px 10px 7px 0;
-                transform: translateY(5px);
+                transform: translateY(6px);
                 color: transparent;
             }
 
             input[type=checkbox]:checked + label:before {
                 color: #969696;
-                border: 2px solid #FFFFFF;
+                border: 1px solid #FFFFFF;
                 transform: translateY(0);
             }
 
@@ -100,11 +100,11 @@
     margin: 20px 0;
 
     .added-filter {
-        display: flex;
-        margin-right: 20px;
+        display: none;
+        margin-right: 37px;
 
         img {
-            margin-right: 10px;
+            margin-right: 7px;
             cursor: pointer;
         }
 

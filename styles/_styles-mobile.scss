@@ -21,35 +21,29 @@
 .projects {
     width: 90%;
     margin: auto;
-    padding-bottom: 1em;
+    padding-bottom: 90px;
 
     h1 {
         width: 90%;
         font-size: 2em;
-        margin-top: 2em;
+        margin: 2em auto;
     }
 
     .projects-center {
         position: relative;
-        display: grid;
-        grid-gap: 1em;
-        grid-template-areas: 
-            "p4 p5"
-            "p6 p6"
-            "p7 p8"
-            "p9 p9"
-            "p10 p11"
-            "p12 p13";
+        columns: 3;
+        column-gap: 15px;
 
-            .project-1 {
-                display: none;
-            }
-            .project-2 {
-                display: none;
-            }
-            .project-3 {
-                display: none;
-            }
+        .project {
+            height: 100%;
+            width: 100%;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
     }
 
     .project {
@@ -95,10 +89,27 @@ nav {
     margin: auto;
     padding-bottom: 1em;
 
+    .projects-center {
+        position: relative;
+        columns: 2;
+        column-gap: 15px;
+    
+        .project {
+            height: 100%;
+            width: 100%;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+    }
+
     h1 {
         width: 90%;
         font-size: 1.7em;
-        margin-top: 2em;
+        margin: 2em auto;
     }
 }
 
@@ -124,7 +135,6 @@ nav {
 
                 img {
                     height: 100%;
-                    filter: invert(0.8);
 
                     &:hover {
                         transition: none;

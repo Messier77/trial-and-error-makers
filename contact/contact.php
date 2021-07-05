@@ -19,28 +19,29 @@
                 <li><a href="#"><img src="../images/icons/facebook-icon.svg" alt=""></a></li>
                 <li><a href="#"><img src="../images/icons/instagram-icon.svg" alt=""></a></li>
                 <li><a href="#"><img src="../images/icons/twitter-icon.svg" alt=""></a></li>
-                <li class="header-icon-mobile"><a href="#"><img src="../images/icons/youtube-icon.svg" alt=""></a></li>
+                <li class="header-icon-mobile"><a href="#"><img src="../images/icons/youtube-icon-header-mobile.svg" alt=""></a></li>
             </ul>
         </div>
 
         <!-- Logo -->
         <div class="logo">
-            <a href="../index.html"><img src="../images/icons/Logo-and-bg.svg" alt=""></a>
+            <a href="../index.php"><img src="../images/icons/Logo-and-bg.svg" alt=""></a>
         </div>
 
         <!-- Navigation menu -->
         <div class="nav-menu">
             <ul>
-                <li><a href="../work/work.html">Work</a></li>
+                <li><a href="../work/work.php">Work</a></li>
                 <li><a href="#">YouTube Channel</a></li>
-                <li><a href="../contact/contact.html" class="menu-active">Meet us</a></li>
+                <li><a href="../contact/contact.php" class="menu-active">Meet us</a></li>
                 <li class="header-icon-mobile burger-toggle"><img src="../images/icons/burger-menu.svg" alt=""></li>
+                <li class="header-icon-mobile burger-toggle" id="burger-close"><img src="../images/icons/burger-menu-close.svg" alt=""></li>
             </ul>
         </div>
     </nav>
     <div class="mobile-nav inactive-menu">
         <ul>
-            <li><a href="../work/work.html">Work</a></li>
+            <li><a href="../work/work.php">Work</a></li>
             <li><a href="#">YouTube Channel</a></li>
             <li><a href="#">Meet us</a></li>
         </ul>
@@ -63,7 +64,7 @@
         <div class="us">
             <div class="dragos">
                 <div class="mypicture">
-                    <img src="../images/dragos.jpg" alt="">
+                    <img src="../images/contact/dragos.jpg" alt="">
                 </div>
                 <div class="about-me">
                     <h2>Hi, I'm Dragos!</h2>
@@ -74,7 +75,7 @@
 
             <div class="teo">
                 <div class="mypicture">
-                    <img src="../images/teo.jpg" alt="">
+                    <img src="../images/contact/teo.jpg" alt="">
                 </div>
                 <div class="about-me">
                     <h2>Hi, I'm Teo!</h2>
@@ -141,7 +142,7 @@
             <div class="row100">
                 <div class="col textarea-col">
                     <div class="inputBox textarea">
-                        <textarea required="required"></textarea>
+                        <textarea required="required" id="textarea-resize"></textarea>
                         <span class="text">Message</span>
                         <span class="line"></span>
                     </div>
@@ -162,7 +163,7 @@
         </div>
 
         <div class="footer-logo">
-            <a href="../index.html"><img src="../images/icons//Footer-logo.svg" alt=""></a>
+            <a href="../index.php"><img src="../images/icons//Footer-logo.svg" alt=""></a>
         </div>
 
         <div class="social-footer">
@@ -175,6 +176,7 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="../scripts/scripts.js"></script>
 </body>
 
