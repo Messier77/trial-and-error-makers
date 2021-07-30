@@ -53,19 +53,12 @@ let myApp = {
       if (allCategoriesFromProducts.includes(category.category_tag)) {
         return category;
       }
-    }).map(filter => {
-      filter.active = false;
-      return filter;
     });
     myApp.filters.materials = materials.filter((material) => {
       if (allMaterialsFromProducts.includes(material.material_tag)) {
         return material;
       }
-    }).map(filter => {
-      filter.active = false;
-      return filter;
-    });;
-
+    });
   },
 
   filterByMaterial: function() {
