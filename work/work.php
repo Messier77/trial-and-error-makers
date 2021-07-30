@@ -81,6 +81,11 @@
 
         <div class="line"></div>
 
+
+        <div class="added-filters" id="results">
+
+        </div>
+
         <div class="added-filters" id="added-filters">
         </div>
 
