@@ -81,35 +81,7 @@
 
         <div class="line"></div>
 
-        <div class="added-filters">
-            <?php 
-            
-            $query = "SELECT * FROM categories";
-            $select_all_categories_query = mysqli_query($connection, $query);
-
-                while($row = mysqli_fetch_assoc($select_all_categories_query)) {
-                    $category_id = $row['category_id'];
-                    $category_name = $row['category_name'];
-            ?>
-            <div class="added-filter <?php echo $category_name ?>">
-                <img src="../images/icons/close-filter.svg" alt="">
-                <p><?php echo $category_name ?></p>
-            </div>
-            <?php } ?>
-            <?php 
-                        
-            $query = "SELECT * FROM materials";
-            $select_all_materials_query = mysqli_query($connection, $query);
-
-                while($row = mysqli_fetch_assoc($select_all_materials_query)) {
-                    $material_id = $row['material_id'];
-                    $material_name = $row['material_name'];
-            ?>
-            <div class="added-filter <?php echo $material_name ?>">
-                <img src="../images/icons/close-filter.svg" alt="">
-                <p><?php echo $material_name ?></p>
-            </div>
-            <?php } ?>
+        <div class="added-filters" id="added-filters">
         </div>
 
         <div id="project-center-new" class="projects-center">
