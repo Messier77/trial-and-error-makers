@@ -31,10 +31,30 @@
             z-index: 1;
             display: none;
 
-            label {
+            .label {
                 font-family: 'Montserrat', sans-serif;
                 color: #565656;
                 font-size: 1em;
+
+                &:before {
+                    content: "\2714";
+                    border: 1px solid #969696;
+                    width: 10px;
+                    height: 10px;
+                    display: inline-block;
+                    margin: 7px 10px 7px 0;
+                    transform: translateY(6px);
+                    color: transparent;
+                }
+
+
+                &.checked {
+                    &:before {
+                        color: #969696;
+                        border: 1px solid #FFFFFF;
+                        transform: translateY(0);
+                    }
+                }
             }
 
             input[type=checkbox] + label {
@@ -100,8 +120,11 @@
     margin: 20px 0;
 
     .added-filter {
-        display: none;
-        margin-right: 37px;
+        margin: 5px;
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        
 
         img {
             margin-right: 7px;

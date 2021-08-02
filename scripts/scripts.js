@@ -21,8 +21,6 @@ links.forEach(link => {
 
 let myApp = {
   productListFull: [],
-  categoryListFull: [],
-  materialListFull: [],
   productList: [],
   filters: {
     materials: [],
@@ -36,16 +34,15 @@ let myApp = {
 
     myApp.productListFull = products;
     myApp.productList = products;
-    myApp.categoryListFull = categories;
-    myApp.materialListFull = materials;
 
     myApp.setFilters(products, categories, materials);
 
-    console.log(JSON.stringify(myApp));
+    console.log(myApp);
 
     myApp.printProducts();
     myApp.printMaterials();
     myApp.printCategories();
+    myApp.printResultsNr();
   },
   setFilters: function(products, categories, materials) {
 
@@ -62,24 +59,107 @@ let myApp = {
         return material;
       }
     });
+  },
 
+  filterByMaterial: function() {
+    let newProducts = myApp.productList;
+
+    const activeMaterialNames = myApp.filters.materials.filter((mat) => {
+
+      const id = parseInt(mat.material_id);
+      if (myApp.activeFilters.materials.includes(id)) {
+        return mat;
+      }
+    }).map(mat => mat.material_tag);
+
+    newProducts = newProducts.filter((prod) => {
+      if (activeMaterialNames.includes(prod.product_material)) {
+        return prod;
+      }
+
+    });
+
+    return newProducts;
+  },
+  filterByCategory: function() {
+    let newProducts = myApp.productList;
+
+    const activeCategoryNames = myApp.filters.categories.filter((cat) => {
+
+      const id = parseInt(cat.category_id);
+      if (myApp.activeFilters.categories.includes(id)) {
+        return cat;
+      }
+    }).map(cat => cat.category_tag);
+
+    newProducts = newProducts.filter((prod) => {
+      if (activeCategoryNames.includes(prod.product_category)) {
+        return prod;
+      }
+    });
+
+    return newProducts;
   },
   updateProductList: function() {
 
-    if (myApp.activeFilters.materials.length) {
-      myApp.productList = myApp.productListFull.filter(product => {
-        const productMaterialObject = myApp.filters.materials.filter((material) => material.material_name === product.product_material);
-        const productMaterialId = productMaterialObject.material_id;
+    myApp.productList = myApp.productListFull;
 
-        return myApp.activeFilters.materials.includes(productMaterialId);
-      });
+    if (myApp.activeFilters.materials.length) {
+      myApp.productList = myApp.filterByMaterial();
     }
 
+    if (myApp.activeFilters.categories.length) {
+      myApp.productList = myApp.filterByCategory();
+    }
     myApp.printProducts();
-
     myApp.printCategories();
     myApp.printMaterials();
 
+    myApp.printAddedFilters();
+    myApp.printResultsNr();
+  },
+
+  printAddedFilters: function() {
+    let res = "";
+
+    myApp.filters.materials.forEach(material => {
+
+      if (myApp.activeFilters.materials.includes(parseInt(material.material_id))) {
+        let item = `
+          <div class="added-filter">
+            <img onclick="myApp.toggleMaterial(${parseInt(material.material_id)})" src="../images/icons/close-filter.svg" alt="">
+            <p>${material.material_name}</p>
+          </div>
+        `;
+        res += item;
+      }
+    });
+
+    myApp.filters.categories.forEach(category => {
+
+      if (myApp.activeFilters.categories.includes(parseInt(category.category_id))) {
+        let item = `
+          <div class="added-filter">
+            <img onclick="myApp.toggleCategory(${parseInt(category.category_id)})" src="../images/icons/close-filter.svg" alt="">
+            <p>${category.category_name}</p>
+          </div>
+        `;
+        res += item;
+      }
+    });
+
+    document.querySelector("#added-filters").innerHTML = "";
+    document.querySelector("#added-filters").innerHTML = res;
+
+
+  },
+  printResultsNr: function() {
+
+    let res = `${myApp.productList.length} Results`;
+    if (myApp.productList.length === 1) {
+      res = '1 Result';
+    }
+    document.querySelector("#results").innerHTML = res;
   },
   printProducts: function() {
       let res = "";
@@ -103,14 +183,12 @@ let myApp = {
       document.querySelector("#project-center-new").innerHTML = res;
   },
   printMaterials: function() {
-
-
       let res = "";
       myApp.filters.materials.forEach(element => {
         let id = element.material_id;  
         let item = `
-                <input onclick="myApp.toggleMaterial(${id})" type="checkbox" id="material${id}" name="materials${id}" value="${element.material_name}" rel="${element.material_name}">
-                <label for="${element.material_name}" class="material">${element.material_name}</label>
+                <input data-material="${id}" type="checkbox" id="material${id}" name="materials${id}" value="${element.material_name}" rel="${element.material_name}">
+                <label for="material${id}" onclick="myApp.toggleMaterial(${id})" class="material label ${myApp.activeFilters.materials.includes(parseInt(element.material_id)) ? 'checked' : ''}">${element.material_name}</label>
               `;
       res += item;
       });
@@ -120,11 +198,11 @@ let myApp = {
   },
   printCategories: function() {
       let res = "";
-      myApp.categoryListFull.forEach(element => {
+      myApp.filters.categories.forEach(element => {
           let id = element.category_id;  
           let item = `
-                <input type="checkbox" id="category${id}" name="categories" value="${element.category_name}" rel="${element.category_name}">
-                <label for="${element.category_name}" class="category">${element.category_name}</label>
+                <input data-category="${id}" type="checkbox" id="category${id}" name="categories" value="${element.category_name}" rel="${element.category_name}">
+                <label for="category${id}" onclick="myApp.toggleCategory(${id})" class="category label ${myApp.activeFilters.categories.includes(parseInt(element.category_id)) ? 'checked' : ''}">${element.category_name}</label>
               `;
       res += item;
       });
@@ -133,6 +211,7 @@ let myApp = {
       document.querySelector("#categories").innerHTML = res;
   },
   toggleMaterial: function(materialId) {
+
 
     debugger;
 
@@ -144,7 +223,19 @@ let myApp = {
 
     myApp.updateProductList();
 
-  }
+  },
+  toggleCategory: function(categoryId) {
+
+    if (myApp.activeFilters.categories.includes(categoryId)) {
+      myApp.activeFilters.categories = myApp.activeFilters.categories.filter((id) => id !== categoryId);
+    } else {
+      myApp.activeFilters.categories.push(categoryId);
+    }
+
+    myApp.updateProductList();
+
+  },
+
 }
 
 
